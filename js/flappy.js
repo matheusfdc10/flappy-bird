@@ -146,6 +146,10 @@ function colidiu(passaro, barreiras) {
     return colidiu
 }
 
+function reiniciar() {
+    window.location.reload()
+}
+
 function FlappyBird() {
     let pontos = 0
 
@@ -170,6 +174,12 @@ function FlappyBird() {
 
             if (colidiu(passaro, barreiras)) {
                 clearInterval(temporizador)
+
+                const boxText = document.querySelector('.box-text')
+                boxText.textContent = `${pontos} ponto(s)`
+
+                const box = document.querySelector('.box')
+                box.classList.add('active')
             }
         }, 20)
     }
